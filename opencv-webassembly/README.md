@@ -71,3 +71,5 @@ node scratch.js  2.25s user 0.37s system 164% cpu 1.594 total
 ```
 
 Possible performance increase when shifting e.g. image matching to [worker threads](https://nodejs.org/dist/latest-v15.x/docs/api/worker_threads.html) should be benchmarked before any further steps are taken.
+
+If worker threads prove to be beneficial, [comlink](https://github.com/GoogleChromeLabs/comlink) might be helpful with implementation.
