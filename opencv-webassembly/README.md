@@ -37,6 +37,23 @@ While all of the above lead to a ready-to-use setup of nut.js without having to 
 [prebuild](https://www.npmjs.com/package/prebuild) and [prebuild-install](https://www.npmjs.com/package/prebuild-install) work by having `prebuild` upload build artifacts to a [GitHub release](https://github.com/nut-tree/opencv4nodejs/releases/tag/v5.3.0-3). On install, `prebuild-install` will download the respective artifact depending on your platform / node / Electron version.
 Having a package side-load binaries on installation always comes with a smell, so I'd like to get rid of it!
 
+## Outcome
+
+### Platform and ABI independence
+
+We would no longer have to provide binaries for each platform / node ABI version but only a single WebAssembly binary.
+
+### No more side-loading
+
+With platform / node ABI specific binaries out of our way, we no require the side-loading mechanism of [prebuild](https://www.npmjs.com/package/prebuild) and [prebuild-install](https://www.npmjs.com/package/prebuild-install).
+
+### Reduced complexity
+
+The overall setup would be greatly simplyfied if we no longer had to maintain the complex, platform dependent setup described above.
+This would increase developer experience, since it'd be easier to build / modify the whole project locally.
+
+Overall, maintenance efforts would be greatly reduced since we wouldn't have to take care of new prebuilds for every ABI change.
+
 ## Proposed changes
 
 In order to get rid of `opencv4nodejs` the following steps have to be considered.
